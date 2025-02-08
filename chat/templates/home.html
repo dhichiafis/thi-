@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>This is the home</h2>
+    <h3 id="welcome"></h3>
+    <script>
+        const myWebSocket=new WebSocket("ws://{{request.get_host}}/ws/echo/")
+        myWebSocket.addEventListener("message",(event)=>{
+            document.querySelector('#welcome').textContent=event.data
+        })
+    </script>
+
+</body>
+</html>
